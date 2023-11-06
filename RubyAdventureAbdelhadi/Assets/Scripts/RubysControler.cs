@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class RubysControler : MonoBehaviour
 {
+    Rigidbody2D 
     // Start is called before the first frame update
     void Start()
     {
