@@ -5,24 +5,27 @@ using UnityEngine.UIElements;
 
 public class RubysControler : MonoBehaviour
 {
-    Rigidbody2D 
+    Rigidbody2D rgidbody2d;
+    float horizantal;
+    float vertal;
+
     // Start is called before the first frame update
-    void Start()
+     void Start()
     {
-        
+        rigidbody2d = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        float horizantal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        horizantal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
 
 
-        Vector2 position = transform.position;
-        position.x = position.x + 3.0f * horizantal * Time.deltaTime;
-        position.y = position.y + 3.0f * vertical * Time.deltaTime;
-
-        transform.position = position;
+     }
+    void FixedUpdate()
+    {
+        
     }
 }
