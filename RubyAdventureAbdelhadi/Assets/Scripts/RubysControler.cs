@@ -5,15 +5,21 @@ using UnityEngine.UIElements;
 
 public class RubysControler : MonoBehaviour
 {
-    Rigidbody2D rgidbody2d;
+    public float speed = 3.0f;
+    public int maxHealth = 5;
+    int currentHealth;
+
+   
+    Rigidbody2D rigidbody2d;
     float horizantal;
-    float vertal;
+    float vertical;
 
     // Start is called before the first frame update
-     void Start()
+    void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
-
+        currentHealth = maxHealth;
+    
     }
 
     // Update is called once per frame
@@ -23,9 +29,18 @@ public class RubysControler : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
 
 
-     }
+    }
     void FixedUpdate()
     {
-        
+        Vector2 position= transform.position;
+        position.x = position.x + speed * horizantal * Time.deltaTime;
+        position.y = position.y + speed * vertical * Time.deltaTime; ;
+
+        rigidbody2d.MovePosition(position);
+    }
+    void CHangeHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 }
