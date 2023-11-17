@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class RubysControler : MonoBehaviour
+public class RubyController : MonoBehaviour
 {
     public float speed = 3.0f;
     public int maxHealth = 5;
+    public int health { get { return currentHealth; } }
     int currentHealth;
 
    
@@ -19,6 +20,7 @@ public class RubysControler : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
+        
     
     }
 
@@ -38,7 +40,7 @@ public class RubysControler : MonoBehaviour
 
         rigidbody2d.MovePosition(position);
     }
-    void CHangeHealth(int amount)
+    public void ChangeHealth(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
