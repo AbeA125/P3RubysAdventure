@@ -39,4 +39,6 @@ public class Bird : MonoBehaviour
         GameController.instance.BirdDied();
     }
 
+
+
 }
